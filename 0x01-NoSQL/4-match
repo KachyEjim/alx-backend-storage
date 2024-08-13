@@ -1,0 +1,2 @@
+// How to sort and use match
+db.school.find({ name: "Holberton school" });
