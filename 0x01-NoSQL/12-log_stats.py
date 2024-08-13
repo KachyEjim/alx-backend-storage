@@ -4,7 +4,7 @@
 from pymongo import MongoClient
 
 
-def print_log_stats():
+if __name__ == "__main__":
     """
     Counts the number of data in a nginix log
     """
@@ -20,13 +20,9 @@ def print_log_stats():
     print("Methods:")
     for method in methods:
         count = nginx_collection.count_documents({"method": method})
-        print(f"\tmethod {method}: {count}")
+         print(f'\tmethod {method}: {count}')
 
     status_check = nginx_collection.count_documents(
         {"method": "GET", "path": "/status"}
     )
     print(f"{status_check} status check")
-
-
-if __name__ == "__main__":
-    print_log_stats()
